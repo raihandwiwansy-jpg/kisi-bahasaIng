@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Soal & Jawaban - PAS Genap Bahasa Inggris Kelas XI</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0f1117;
+    --card: #1a1d27;
+    --card2: #1e2130;
+    --accent: #f5c842;
+    --accent2: #ff7e5f;
+    --green: #4ade80;
+    --text: #e8e8f0;
+    --muted: #8888aa;
+    --border: #2e3150;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Lato', sans-serif;
+    min-height: 100vh;
+    padding: 0 0 60px;
+  }
+
+  /* HEADER */
+  .header {
+    background: linear-gradient(135deg, #1a1d27 0%, #0f1117 100%);
+    border-bottom: 2px solid var(--accent);
+    padding: 36px 24px 28px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .header::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 220px; height: 220px;
+    background: radial-gradient(circle, rgba(245,200,66,0.13) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .header::after {
+    content: '';
+    position: absolute;
+    bottom: -40px; left: -40px;
+    width: 160px; height: 160px;
+    background: radial-gradient(circle, rgba(255,126,95,0.10) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .school-name {
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    font-weight: 700;
+  }
+  .header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(22px, 5vw, 38px);
+    font-weight: 900;
+    color: #fff;
+    line-height: 1.2;
+    margin-bottom: 8px;
+  }
+  .header h1 span { color: var(--accent); }
+  .header-sub {
+    font-size: 13px;
+    color: var(--muted);
+    margin-top: 6px;
+  }
+  .badges {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 16px;
+  }
+  .badge {
+    background: rgba(245,200,66,0.12);
+    border: 1px solid rgba(245,200,66,0.35);
+    color: var(--accent);
+    padding: 4px 14px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  /* SECTION TITLE */
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    color: var(--accent2);
+    padding: 28px 20px 10px;
+    max-width: 860px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .section-title::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  /* QUESTION CARD */
+  .container { max-width: 860px; margin: 0 auto; padding: 0 16px; }
+
+  .q-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    margin-bottom: 14px;
+    overflow: hidden;
+    transition: border-color 0.2s;
+  }
+  .q-card:hover { border-color: rgba(245,200,66,0.4); }
+
+  .q-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 16px 18px 14px;
+    cursor: pointer;
+    user-select: none;
+  }
+  .q-num {
+    min-width: 32px;
+    height: 32px;
+    background: var(--accent);
+    color: #0f1117;
+    border-radius: 8px;
+    font-weight: 900;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Playfair Display', serif;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .q-text {
+    flex: 1;
+    font-size: 14px;
+    line-height: 1.65;
+    color: var(--text);
+  }
+  .q-text .dialog { color: #c8d0f0; font-style: italic; margin: 4px 0; }
+  .q-text .bold { font-weight: 700; color: #fff; }
+  .q-text .highlight { color: var(--accent); font-style: italic; }
+
+  /* OPTIONS */
+  .options {
+    padding: 0 18px 0 64px;
+    display: grid;
+    gap: 6px;
+    margin-bottom: 2px;
+  }
+  .opt {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 7px 10px;
+    border-radius: 8px;
+    font-size: 13.5px;
+    background: transparent;
+    border: 1px solid transparent;
+    transition: background 0.15s;
+  }
+  .opt.correct {
+    background: rgba(74,222,128,0.10);
+    border-color: rgba(74,222,128,0.30);
+    color: var(--green);
+    font-weight: 700;
+  }
+  .opt-label {
+    font-weight: 700;
+    min-width: 18px;
+    color: var(--muted);
+    font-size: 12px;
+    margin-top: 1px;
+  }
+  .opt.correct .opt-label { color: var(--green); }
+  .check-icon {
+    margin-left: auto;
+    font-size: 15px;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  /* ANSWER BOX */
+  .ans-box {
+    margin: 10px 18px 16px 64px;
+    background: rgba(74,222,128,0.08);
+    border-left: 3px solid var(--green);
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+    font-size: 13px;
+    color: var(--green);
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  .ans-label {
+    font-weight: 900;
+    letter-spacing: 1px;
+    font-size: 11px;
+    background: var(--green);
+    color: #0f1117;
+    padding: 2px 7px;
+    border-radius: 4px;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  /* TEXT PASSAGE */
+  .passage {
+    background: var(--card2);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 18px 20px;
+    margin-bottom: 14px;
+    font-size: 13.5px;
+    line-height: 1.8;
+    color: #c8d0f0;
+    position: relative;
+  }
+  .passage-label {
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: var(--accent2);
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+
+  /* ESSAY */
+  .essay-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    margin-bottom: 14px;
+    overflow: hidden;
+  }
+  .essay-q {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 16px 18px 12px;
+  }
+  .essay-num {
+    min-width: 32px;
+    height: 32px;
+    background: var(--accent2);
+    color: #fff;
+    border-radius: 8px;
+    font-weight: 900;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Playfair Display', serif;
+    flex-shrink: 0;
+  }
+  .essay-question { font-size: 14px; line-height: 1.6; }
+  .essay-answer {
+    margin: 0 18px 16px 64px;
+    background: rgba(255,126,95,0.08);
+    border-left: 3px solid var(--accent2);
+    border-radius: 0 8px 8px 0;
+    padding: 12px 14px;
+    font-size: 13px;
+    color: #ffc4b5;
+    line-height: 1.7;
+  }
+  .essay-answer ul { margin-left: 16px; margin-top: 4px; }
+  .essay-answer li { margin-bottom: 3px; }
+  .essay-answer .ans-label2 {
+    font-weight: 900;
+    letter-spacing: 1px;
+    font-size: 10px;
+    background: var(--accent2);
+    color: #fff;
+    padding: 2px 7px;
+    border-radius: 4px;
+    display: inline-block;
+    margin-bottom: 7px;
+  }
+
+  /* FOOTER */
+  .footer {
+    text-align: center;
+    margin-top: 40px;
+    padding: 20px;
+    color: var(--muted);
+    font-size: 12px;
+    border-top: 1px solid var(--border);
+  }
+  .footer span { color: var(--accent); font-weight: 700; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="school-name">SMK Swasta Al Washliyah 2 Perdagangan</div>
+  <h1>Soal & Jawaban <span>Bahasa Inggris</span></h1>
+  <div class="header-sub">Penilaian Tengah Semester Genap — TP. 2025/2026</div>
+  <div class="badges">
+    <span class="badge">Kelas XI</span>
+    <span class="badge">Semua Jurusan</span>
+    <span class="badge">90 Menit</span>
+    <span class="badge">37 Soal PG + 13 Essay</span>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- ===== MULTIPLE CHOICE ===== -->
+  <div class="section-title">I. Multiple Choice</div>
+
+  <!-- Q1 -->
+  <div class="q-card">
+    <div class="q-header">
+      <div class="q-num">1</div>
+      <div class="q-text">
+        <span class="dialog">Anita : What's wrong with me? I have a terrible headache.</span><br>
+        <span class="dialog">Brian : ……….. Have you taken any aspirin?</span><br>
+        <span class="dialog">Anita : Yes, I took one an hour ago, but the pain hasn't gone.</span>
+      </div>
+    </div>
+    <div class="options">
+      <div class="opt"><span class="opt-label">A.</span> After that, you need to lay down</div>
+      <div class="opt"><span class="opt-label">B.</span> If I were you, I wouldn't take the aspirin</div>
+      <div class="opt correct"><span class="opt-label">C.</span> You'd better lay down for a while <span class="check-icon">✔</span></div>
+      <div class="opt"><span class="opt-label">D.</span> The doctor has come yet</div>
+      <div class="opt"><span class="opt-label">E.</span> Don't sigh</div>
+    </div>
+    <div class="ans-box"><span class="ans-label">JAWABAN</span> C — Brian memberikan saran kepada Anita yang sakit kepala agar beristirahat.</div>
+  </div>
+
+  <!-- Q2 -->
+  <div class="q-card">
+    <div class="q-header">
+      <div class="q-num">2</div>
+      <div class="q-text">Which of the following is an expression of <span class="bold">Offering Help</span>?</div>
+    </div>
+    <div class="options">
+      <div class="opt"><span class="opt-label">A.</span> I am sorry to hear that.</div>
+      <div class="opt"><span class="opt-label">B.</span> I don't think so.</div>
+      <div class="opt correct"><span class="opt-label">C.</span> Would you like some help? <span class="check-icon">✔</span></div>
+      <div class="opt"><span class="opt-label">D.</span> Can you do me a favor?</div>
+      <div class="opt"><span class="opt-label">E.</span> Thank you.</div>
+    </div>
+    <div class="ans-box"><span class="ans-label">JAWABAN</span> C — "Would you like some help?" adalah ekspresi menawarkan bantuan.</div>
+  </div>
+
+  <!-- Q3 -->
+  <div class="q-card">
+    <div class="q-header">
+      <div class="q-num">3</div>
+      <div class="q-text"><span class="highlight">"Can I help you carry your groceries?"</span><br>The expression above is ……….</div>
+    </div>
+    <div class="options">
+      <div class="opt"><span class="opt-label">A.</span> Offering Goods or Services</div>
+      <div class="opt correct"><span class="opt-label">B.</span> Offering Assistance <span class="check-icon">✔</span></div>
+      <div class="opt"><span class="opt-label">C.</span> Offering Emotional Support</div>
+      <div class="opt"><span class="opt-label">D.</span> Offering Skills or Knowledge</div>
+      <div class="opt"><span class="opt-label">E.</span> Offering Time</div>
+    </div>
+    <div class="ans-box"><span class="ans-label">JAWABAN</span> B — Menawarkan untuk membantu membawakan belanjaan = Offering Assistance.</div>
+  </div>
+
+  <!-- Q4 -->
+  <div class="q-card">
+    <div class="q-header">
+      <div class="q-num">4</div>
+      <div class="q-text"><span class="highlight">"I have some books you can borrow if you need them."</span><br>The expression above is ……….</div>
+    </div>
+    <div class="options">
+      <div class="opt"><span class="opt-label">A.</span> Offering Emotional Support</div>
+      <div class="opt"><span class="opt-label">B.</span> Offering Skills or Knowledge</div>
+      <div class="opt"><span class="opt-label">C.</span> Offering Time</div>
+      <div class="opt correct"><span class="opt-label">D.</span> Offering Sharing <span class="check-icon">✔</span></div>
+      <div class="opt"><span class="opt-label">E.</span> Offering Assistance</div>
+    </div>
+    <div class="ans-box"><span class="ans-label">JAWABAN</span> D — Menawarkan buku untuk dipinjam = Offering Sharing (berbagi barang).</div>
+  </div>
+
+  <!-- Q5 -->
+  <div class="q-card">
+    <div class="q-header">
+      <div class="q-num">5</div>
+      <div class="q-text"><span class="highlight">"If you need someone to talk to or listen, I'm here for you."</span><br>The expression above is ……….</div>
+    </div>
+    <div class="options">
+      <div class="opt correct"><span class="opt-label">A.</span> Offering Emotional Support <span class="check-icon">✔</span></div>
+      <div class="opt"><span class="opt-label">B.</span> Offering Skills or Knowledge</div>
+      <div class="opt"><span class="opt-label">C.</span> Offering Time</div>
+      <div class="opt"><span class="opt-label">D.</span> Offering Sharing</div>
+      <div class="opt"><span class="opt-label">E.</span> Offering Assistance</div>
+    </div>
+    <div class="ans-box"><span class="ans-label">JAWABAN</span> A — "I'm here for you" = menawarkan dukungan emosional.</div>
+  </div>
+
+  <!-- Q6 -->
+  <div class="q-card">
+    <div class="q-header">
+      <div class="q-num">6</div>
+      <div class="q-text"><span class="highlight">"Would you like a cup of coffee?"</span><br>The expression above is ……….</div>
+    </div>
+    <div class="options">
+      <div class="opt correct"><span class="opt-label">A.</span> Offering Goods or Services <span class="check-icon">✔</span></div>
+      <div class="opt"><span class="opt-label">B.</span> Offering Assistance</div>
+      <div class="opt"><span class="opt-label">C.</span> Offering Emotional Support</div>
+      <div class="opt"><span class="opt-label">D.</span> Offering Skills or Knowledge</div>
+      <div class="opt"><span class="opt-label">E.</span> Offering Time</div>
+    </div>
+    <div class="ans-box"><span class="ans-label">JAWABAN</span> A — Menawarkan minuman (barang) = Offering Goods or Services.</div>
+  </div>
+
+  <!-- Q7 -->
+  <div class="q-card">
+    <div class="q-header">
+      <div class="q-num">7</div>
+      <div class="q-text"><span class="highlight">"I know a lot about cooking. If you need a recipe or advice, just ask."</span><br>The expression above is ……….</div>
+    </div>
+    <div class="options">
+      <div class="opt"><span class="opt-label">A.</span> Offering Goods or Services</div>
+      <div class="opt"><span class="opt-label">B.</span> Offering Assistance</div>
+      <div class="opt"><span class="opt-label">C.</span> Offering Emotional Support</div>
+      <div class="opt correct"><span class="opt-label">D.</span> Offering Skills or Knowledge <span class="check-icon">✔</span></div>
+      <div class="opt"><span class="opt-label">E.</span> Offering Time</div>
+    </div>
+    <div class="ans-box"><span class="ans-label">JAWABAN</span> D — Menawarkan keahlian memasak = Offering Skills or Knowledge.</div>
+  </div>
+
+  <!-- Q8 -->
+  <div class="q-card">
+    <div class="q-header">
+      <div class="q-num">8</div>
+      <div class="q-text">
+        <span class="dialog">Aldo : "What should I do to make a better result in the next test?"</span><br>
+        <span class="dialog">Ryo : "………..."</span>
+      </div>
+    </div>
+    <div class="options">
+      <div class="opt correct"><span class="opt-label">A.</span> I think you should learn more diligently <span class="check-icon">✔</span></div>
+      <div class="opt"><span class="opt-label">B.</span> You should quit from your school</div>
+      <div class="opt"><span class="opt-label">C.</span> There is no way you can make a better result</div>
+      <div class="opt"><span class="opt-label">D.</span> I think you're not a smart student</div>
+      <div class="opt"><span class="opt-label">E.</span> If I were you, I would not worry it</div>
+    </div>
+    <div class="ans-box"><span class="ans-label">JAWABAN</span> A — Saran yang paling tepat dan positif untuk meningkatkan hasil ujian.</div>
+  </div>
+
+  <!-- Q9 -->
+  <div class="q-card">
+    <div class="q-header">
+      <div class="q-num">9</div>
+      <div class="q-text">
+        <span class="dialog">Arjuna : I think I have a stomachache. It really hurts…..</span><br>
+        <span class="dialog">Shinta : You should take medicine and you can buy it at the chemist.</span><br>
+        Arjuna's best response is ………
+      </div>
+    </div>
+    <div class="options">
+      <div class="opt correct"><span class="opt-label">A.</span> That's a good idea! <span class="check-icon">✔</span></div>
+      <div class="opt"><span class="opt-label">B.</span> What's your feeling?</div>
+      <div class="opt"><span class="opt-label">C.</span> Tell anyone about it!</div>
+      <div class="opt"><span class="opt-label">D.</span> Do you have any idea?</div>
+      <div class="opt"><span class="opt-label">E.</span> You can do anything</div>
+    </div>
+    <div class="ans-box"><span class="ans-label">JAWABAN</span> A — Arjuna menerima saran Shinta dengan positif.</div>
+  </div>
+
+  <!-- Q10 -->
+  <div class="q-card">
+    <div class="q-header">
+      <div class="q-num">10</div>
+      <div class="q-text">
+        <span class="dialog">Arya : I'm very tired of having non-stop walking for an hour. I feel thirsty.</span><br>
+        <span class="dialog">Doni : ………..</span><br>
+        <span class="dialog">Arya : That's very kind of you.</span>
+      </div>
+    </div>
+    <div class="options">
+      <div class="opt"><span class="opt-label">A.</span> Can you give me a bottle of milk?</div>
+      <div class="opt correct"><span class="opt-label">B.</span> Would you like some mineral water? <span class="check-icon">✔</span></div>
+      <div class="opt"><span class="opt-label">C.</span> Would you like to have some cakes?</div>
+      <div class="opt"><span class="opt-label">D.</span> Do you want to have some cake?</div>
+      <div class="opt"><span class="opt-label">E.</span> I don't have mineral water</div>
+    </div>
+    <div class="ans-box"><span class="ans-label">JAWABAN</span> B — Arya haus, Doni menawarkan air minum. Arya berterima kasih → tawaran diterima.</div>
+  </div>
+
+  <!-- Q11 -->
+  <div class="q-card">
+    <div class="q-header">
+      <div class="q-num">11</div>
+      <div class="q-text">
+        <span class="dialog">Tiwi : It's so cool here.</span><br>
+        <span class="dialog">Tika : ..... and make hot tea for you?</span>
+      </div>
+    </div>
+    <div class="options">
+      <div class="opt"><span class="opt-label">A.</span> Would you like me to turn on the AC</div>
+      <div class="opt"><span class="opt-label">B.</span> Would you like to go out for a while</div>
+      <div class="opt correct"><span class="opt-label">C.</span> Would you like me to turn on the heater <span class="check-icon">✔</span></div>
+      <div class="opt"><span class="opt-label">D.</span> Would you like to use our new fan</div>
+      <div class="opt"><span class="opt-label">E.</span> Would you like something to eat</div>
+    </div>
+    <div class="ans-box"><span class="ans-label">JAWABAN</span> C — Tiwi kedinginan ("cool"), Tika menawarkan untuk menyalakan pemanas dan membuat teh hangat.</div>
+  </div>
+
+  <!-- Q12 -->
+  <div class="q-card">
+    <div class="q-header">
+      <div class="q-num">12</div>
+      <div class="q-text">
+        <span class="dialog">Alex : The box you brought looks very heavy. Would you like me to help you?</span><br>
+        <span class="dialog">Anton : ………………. I can lift it by myself.</span>
+      </div>
+    </div>
+    <div class="options">
+      <div class="opt"><span class="opt-label">A.</span> Sure</div>
+      <div class="opt"><span class="opt-label">B.</span> I'm sorry, I can't</div>
+      <div class="opt"><span class="opt-label">C.</span> Certainly</div>
+      <div class="opt correct"><span class="opt-label">D.</span> No thanks <span class="check-icon">✔</span></div>
+      <div class="opt"><span class="opt-label">E.</span> Yes, please! Thank you.</div>
+    </div>
+    <div class="ans-box"><span class="ans-label">JAWABAN</span> D — Anton menolak bantuan dengan sopan karena bisa mengangkat sendiri.</div>
+  </div>
+
+  <!-- Q13 -->
+  <div class="q-card">
+    <div class="q-header">
+      <div class="q-num">13</div>
+      <div class="q-text">
+        <span class="dialog">Aldi : It's so hot here. …………………?</span><br>
+        <span class="dialog">Dedi : I'm sorry, I can't. It's out of order.</span>
+      </div>
+    </div>
+    <div class="options">
+      <div class="opt"><span class="opt-label">A.</span> Can you turning on the AC</div>
+      <div class="opt"><span class="opt-label">B.</span> Don't turn on the AC</div>
+      <div class="opt"><span class="opt-label">C.</span> Turn off the AC</div>
+      <div
